@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ProductController extends Controller
 {
     public function index() {
-        return Product::with('size')->get();
+        return Product::with('size', 'category')->get();
     }
 
     public function store(Request $request) {
