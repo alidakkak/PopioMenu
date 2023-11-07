@@ -30,6 +30,7 @@ Route::get('/categories/{category}', [\App\Http\Controllers\CategoryController::
 ///// Product
 Route::get('/products', [\App\Http\Controllers\ProductController::class,'index']);
 Route::get('/products/{product}', [\App\Http\Controllers\ProductController::class,'show']);
+Route::get('/count', [\App\Http\Controllers\ProductController::class,'countCP']);
 
 //// Size
 Route::get('/sizes', [\App\Http\Controllers\SizeController::class,'index']);
