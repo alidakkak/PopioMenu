@@ -16,9 +16,9 @@ class ProductController extends Controller
     public function countCP() {
         $category = Category::count();
         $product = Product::count();
-        return response()->json([
-           'Category: ' => $category,
-           'Product: ' => $product
+        return response([
+           "category" => $category,
+           "product"  => $product
         ]);
     }
 
