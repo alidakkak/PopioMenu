@@ -15,6 +15,8 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->string('name_ar');
+            $table->boolean('visibility')->default(0);
+            $table->integer('position');
             $table->string('description')->nullable();
             $table->string('description_ar')->nullable();
             $table->foreignId('category_id')->references('id')->on('categories')->onDelete('cascade');

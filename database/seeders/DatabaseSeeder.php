@@ -20,30 +20,30 @@ class DatabaseSeeder extends Seeder
              'password' => '00000000'
          ]);
 
-        \App\Models\Category::create([
-            'name' => 'Drink',
-            'name_ar' => 'مشروبات'
-        ]);
-
-        \App\Models\Product::create([
-            'name' => 'Orange juice',
-            'name_ar' => 'عصير برتقال',
-            'category_id' => 1
-        ]);
-
-        \App\Models\Size::create([
-            'size' => 'Large',
-            'size_ar' => 'كبير',
-            'price' => 10,
-            'product_id' => 1
-        ]);
-
-        \App\Models\Size::create([
-            'size' => 'Small',
-            'size_ar' => 'صغير',
-            'price' => 5,
-            'product_id' => 1
-        ]);
+//        \App\Models\Category::create([
+//            'name' => 'Drink',
+//            'name_ar' => 'مشروبات'
+//        ]);
+//
+//        \App\Models\Product::create([
+//            'name' => 'Orange juice',
+//            'name_ar' => 'عصير برتقال',
+//            'category_id' => 1
+//        ]);
+//
+//        \App\Models\Size::create([
+//            'size' => 'Large',
+//            'size_ar' => 'كبير',
+//            'price' => 10,
+//            'product_id' => 1
+//        ]);
+//
+//        \App\Models\Size::create([
+//            'size' => 'Small',
+//            'size_ar' => 'صغير',
+//            'price' => 5,
+//            'product_id' => 1
+//        ]);
 
     }
 }

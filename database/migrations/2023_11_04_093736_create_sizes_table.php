@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('size');
             $table->string('size_ar');
             $table->double('price');
+            $table->double('calories')->nullable();
             $table->foreignId('product_id')->references('id')->on('products')->onDelete('cascade');
             $table->timestamps();
         });

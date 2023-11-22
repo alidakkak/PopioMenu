@@ -48,6 +48,7 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('/products', [\App\Http\Controllers\ProductController::class,'store']);
     Route::patch('/products/{product}', [\App\Http\Controllers\ProductController::class,'update']);
     Route::delete('/products/{product}', [\App\Http\Controllers\ProductController::class,'delete']);
+    Route::post('/switchProduct/{product}', [\App\Http\Controllers\ProductController::class,'switchProduct']);
 
     ///// Size
     Route::post('/sizes', [\App\Http\Controllers\SizeController::class,'store']);
