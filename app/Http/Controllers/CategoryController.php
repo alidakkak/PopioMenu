@@ -15,6 +15,13 @@ class CategoryController extends Controller
         , 'product.size'])->orderBy('position')->get();
     }
 
+    public function isVisible() {
+        return Category::with(['product' => function($query) {
+            $query->orderBy('position');
+        }
+            , 'product.size'])->where('visibility', true)->orderBy('position')->get();
+    }
+
     public function store(Request $request) {
         $maxPositionInCategory = Category::max('position');
         if (!$maxPositionInCategory) {
@@ -170,5 +177,12 @@ class CategoryController extends Controller
         }
         $category->delete();
         return 'One Category Deleted Successfully';
+    }
+
+    public function switchCategory(Category $category) {
+        $category->update([
+            'visibility' => ! boolval($category ->visibility)
+        ]);
+        return 'Updated SuccessFully';
     }
 }

@@ -14,6 +14,10 @@ class ProductController extends Controller
         return Product::with('size', 'category')->orderBy('position')->get();
     }
 
+    public function isVisible() {
+        return Product::with('size', 'category')->where('visibility', true)->orderBy('position')->get();
+    }
+
     public function countCP() {
         $category = Category::count();
         $product = Product::count();
@@ -83,6 +87,7 @@ class ProductController extends Controller
             ]);
         }
     }
+
 
     public function update(Request $request, Product $product) {
         $maxPositionInCategory = Product::where('category_id' , $product->category_id)->max('position');

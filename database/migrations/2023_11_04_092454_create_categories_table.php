@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('name');
             $table->string('name_ar');
             $table->integer('position');
+            $table->boolean('visibility')->default(0);
             $table->timestamps();
         });
     }

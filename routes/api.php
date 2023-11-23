@@ -26,11 +26,16 @@ Route::post('/register', [AuthController::class, 'register']);
 ////// Category
 Route::get('/categories', [\App\Http\Controllers\CategoryController::class,'index']);
 Route::get('/categories/{category}', [\App\Http\Controllers\CategoryController::class,'show']);
+Route::get('/isVisible', [\App\Http\Controllers\CategoryController::class,'isVisible']);
+
 
 ///// Product
 Route::get('/products', [\App\Http\Controllers\ProductController::class,'index']);
 Route::get('/products/{product}', [\App\Http\Controllers\ProductController::class,'show']);
 Route::get('/count', [\App\Http\Controllers\ProductController::class,'countCP']);
+Route::get('/isVisibleP', [\App\Http\Controllers\ProductController::class,'isVisible']);
+
+
 
 //// Size
 Route::get('/sizes', [\App\Http\Controllers\SizeController::class,'index']);
@@ -43,6 +48,8 @@ Route::group(['middleware' => 'jwt.auth'], function () {
     Route::post('/categories', [\App\Http\Controllers\CategoryController::class,'store']);
     Route::patch('/categories/{category}', [\App\Http\Controllers\CategoryController::class,'update']);
     Route::delete('/categories/{category}', [\App\Http\Controllers\CategoryController::class,'delete']);
+    Route::post('/switchCategory/{category}', [\App\Http\Controllers\CategoryController::class,'switchCategory']);
+
 
     ///// Product
     Route::post('/products', [\App\Http\Controllers\ProductController::class,'store']);
