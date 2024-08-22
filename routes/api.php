@@ -46,14 +46,14 @@ Route::post('/visits', [\App\Http\Controllers\VisitController::class, 'store']);
 Route::group(['middleware' => 'jwt.auth'], function () {
     ////// Category
     Route::post('/categories', [\App\Http\Controllers\CategoryController::class,'store']);
-    Route::patch('/categories/{category}', [\App\Http\Controllers\CategoryController::class,'update']);
+    Route::post('/categories/{category}', [\App\Http\Controllers\CategoryController::class,'update']);
     Route::delete('/categories/{category}', [\App\Http\Controllers\CategoryController::class,'delete']);
     Route::post('/switchCategory/{category}', [\App\Http\Controllers\CategoryController::class,'switchCategory']);
 
 
     ///// Product
     Route::post('/products', [\App\Http\Controllers\ProductController::class,'store']);
-    Route::patch('/products/{product}', [\App\Http\Controllers\ProductController::class,'update']);
+    Route::post('/products/{product}', [\App\Http\Controllers\ProductController::class,'update']);
     Route::delete('/products/{product}', [\App\Http\Controllers\ProductController::class,'delete']);
     Route::post('/switchProduct/{product}', [\App\Http\Controllers\ProductController::class,'switchProduct']);
 

@@ -17,7 +17,7 @@ class CategoryController extends Controller
 
     public function isVisible() {
         return Category::with(['product' => function($query) {
-            $query->orderBy('position');
+            $query->orderBy('position')->where('visibility', true);
         }
             , 'product.size'])->where('visibility', true)->orderBy('position')->get();
     }
@@ -165,7 +165,7 @@ class CategoryController extends Controller
     }
 
     public function show(Category $category) {
-        return $category;
+        return CategoryResource::make($category);
     }
 
     public function delete(Category $category) {

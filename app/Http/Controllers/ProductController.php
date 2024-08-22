@@ -77,14 +77,16 @@ class ProductController extends Controller
 }
 
     private function createSizes($product, $sizes) {
-        foreach ($sizes as $size) {
-            Size::create([
-                'product_id' => $product->id,
-                'size' => $size['size'],
-                'size_ar' => $size['size_ar'],
-                'price' => $size['price'],
-                'calories' => $size['calories']
-            ]);
+        if($sizes){
+            foreach ($sizes as $size) {
+                Size::create([
+                    'product_id' => $product->id,
+                    'size' => $size['size'],
+                    'size_ar' => $size['size_ar'],
+                    'price' => $size['price'],
+                    'calories' => $size['calories']
+                ]);
+            }
         }
     }
 
